@@ -89,7 +89,6 @@ const LiveData = () => {
                         setDistance(result.rows[0].elements[0].distance.text);
                         setEstimatedTime(result.rows[0].elements[0].duration.text);
                         setTcuStatus(1);
-                        setWeatherData(``)
                     } else {
                         console.error('Error fetching distance matrix data:', result);
                         setDistance('N/A');
