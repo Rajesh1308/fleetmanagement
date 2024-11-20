@@ -33,7 +33,7 @@ const DriverDetails = () => {
               </thead>
               <tbody>
                 <tr className="data-row">
-                  <td>Mr. Nikumbh</td>
+                  <td>Mr. Ballaiya</td>
                   <td>9791961555</td>
                   <td>INRC6548999A65</td>
                   <td>

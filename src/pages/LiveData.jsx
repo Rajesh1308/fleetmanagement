@@ -191,7 +191,7 @@ const LiveData = () => {
                         </div>
                         <div className="col-lg-3">
                             <div className="data-box">
-                                <p><strong>Driver Name : </strong> Mr. Nikumbh</p>
+                                <p><strong>Driver Name : </strong> Mr. Ballaiya</p>
                             </div>
                         </div>
                         <div className="col-lg-3">
