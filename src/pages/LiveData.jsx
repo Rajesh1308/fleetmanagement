@@ -107,6 +107,22 @@ const LiveData = () => {
     }, [data.latitude, data.longitude, destination.lat, destination.lng]);
 
     useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const response_w = await fetch(
+                    `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
+                );
+                const result_w = await response_w.json();
+                console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
+                setWeatherData((result_w.data[0].app_temp).toString() + " C - " + (result_w.data[0].weather.description).toString() )
+            } catch (error) {
+                console.error("Weather API error : ", error)
+            }
+        }
+        fetchWeather()
+    }, [data.latitude, data.longitude])
+
+    useEffect(() => {
         if (data.latitude && data.longitude) {
             const fetchDirections = async () => {
                 const directionsService = new window.google.maps.DirectionsService();
