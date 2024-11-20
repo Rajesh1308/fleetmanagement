@@ -5,7 +5,7 @@ import Sidebar from './Layouts/Sidebar';
 import './styles/LiveData.css'; // Importing external CSS for LiveData
 import { GoogleMap, Marker, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
 
-const server_url = "https://fleetmanagementserver.onrender.com:3000/"
+const server_url = "https://fleetmanagementserver.onrender.com/"
 
 const socket = io(server_url); // Replace with your backend server URL
 
