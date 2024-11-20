@@ -5,7 +5,9 @@ import Sidebar from './Layouts/Sidebar';
 import './styles/LiveData.css'; // Importing external CSS for LiveData
 import { GoogleMap, Marker, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
 
-const socket = io('http://localhost:3000'); // Replace with your backend server URL
+const server_url = "https://fleetmanagementserver.onrender.com:3000/"
+
+const socket = io(server_url); // Replace with your backend server URL
 
 const LiveData = () => {
     const [data, setData] = useState({
@@ -69,7 +71,7 @@ const LiveData = () => {
 
                 try {
                     const response = await fetch(
-                        `http://localhost:3000/api/distance?origins=${origin}&destinations=${destinationString}`
+                        `${server_url}api/distance?origins=${origin}&destinations=${destinationString}`
                     );
                     const result = await response.json();
                     setVehicleLocation(result.origin_addresses[0])
