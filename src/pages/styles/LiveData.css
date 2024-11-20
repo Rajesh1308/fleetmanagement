@@ -55,6 +55,7 @@
 
 /* Add styles for the filter dropdowns */
 .filters {
+    padding: 5px;
     margin: 20px;
     display: flex;
     gap: 20px;
@@ -106,4 +107,8 @@
 .data-box p strong,
 .status-box p strong {
     color: #003366; /* Dark Blue */
+}
+
+.map-container {
+    margin: 10%;
 }
