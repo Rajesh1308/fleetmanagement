@@ -7,6 +7,7 @@ import { GoogleMap, Marker, useJsApiLoader, DirectionsRenderer } from '@react-go
 
 const server_url = "https://fleetmanagementserver.onrender.com/"
 
+
 const socket = io(server_url); // Replace with your backend server URL
 
 const LiveData = () => {
@@ -22,6 +23,7 @@ const LiveData = () => {
     const [tcuStatus, setTcuStatus] = useState(0);
     const [directionsResponse, setDirectionsResponse] = useState(null);
     const [vehicleLocation, setVehicleLocation] = useState("");
+    const [weatherData, setWeatherData] = useState("");
 
     const vehicleTypes = ['truck', 'van', 'auto'];
     const vehicleIds = ['7825', '7826', '7569', '8589', '4545', '8521'];
@@ -38,7 +40,7 @@ const LiveData = () => {
         const longitudeTopic = `fleet/${vehicleType}/${vehicleId}/longitude`;
 
         socket.on('mqtt-message', (data) => {
-            // console.log('Received message:', data);
+            console.log('Received message:', data);
 
             if (data.topic === loadTopic) {
                 setData((prevData) => ({
@@ -68,6 +70,16 @@ const LiveData = () => {
             const fetchDistanceAndTime = async () => {
                 const origin = `${data.latitude},${data.longitude}`;
                 const destinationString = `${destination.lat},${destination.lng}`;
+                try{
+                    const response = await fetch(
+                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
+                    );
+                    const result = await response.json();
+                    console.log(result.data[0].app_temp, result.data[0].weather.description)
+                    setWeatherData((result.data[0].app_temp).toString() + " C - " + (result.data[0].weather.description).toString() )
+                } catch (error) {
+                    console.error("Weather API request created the error : ", error)
+                }
 
                 try {
                     const response = await fetch(
@@ -80,6 +92,7 @@ const LiveData = () => {
                         setDistance(result.rows[0].elements[0].distance.text);
                         setEstimatedTime(result.rows[0].elements[0].duration.text);
                         setTcuStatus(1);
+                        setWeatherData(``)
                     } else {
                         console.error('Error fetching distance matrix data:', result);
                         setDistance('N/A');
@@ -197,6 +210,11 @@ const LiveData = () => {
                         <div className="col-lg-6">
                             <div className="data-box">
                                 <p><strong>Location : </strong> {vehicleLocation !== "" ? vehicleLocation.split(", ").slice(1).join(", ") : 'N/A'}</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="data-box">
+                                <p><strong>Weather : </strong> {weatherData !== "" ? weatherData : 'N/A'}</p>
                             </div>
                         </div>
                     </div>
