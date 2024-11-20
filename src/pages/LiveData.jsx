@@ -70,16 +70,6 @@ const LiveData = () => {
             const fetchDistanceAndTime = async () => {
                 const origin = `${data.latitude},${data.longitude}`;
                 const destinationString = `${destination.lat},${destination.lng}`;
-                try{
-                    const response = await fetch(
-                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
-                    );
-                    const result = await response.json();
-                    console.log(result.data[0].app_temp, result.data[0].weather.description)
-                    setWeatherData((result.data[0].app_temp).toString() + " C - " + (result.data[0].weather.description).toString() )
-                } catch (error) {
-                    console.error("Weather API request created the error : ", error)
-                }
 
                 try {
                     const response = await fetch(
@@ -87,6 +77,13 @@ const LiveData = () => {
                     );
                     const result = await response.json();
                     setVehicleLocation(result.origin_addresses[0])
+
+                    const response_w = await fetch(
+                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
+                    );
+                    const result_w = await response_w.json();
+                    console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
+                    setWeatherData((result_w.data[0].app_temp).toString() + " C - " + (result_w.data[0].weather.description).toString() )
 
                     if (result.rows[0].elements[0].status === 'OK') {
                         setDistance(result.rows[0].elements[0].distance.text);
