@@ -31,8 +31,9 @@ const LiveData = () => {
     const handleVehicleTypeChange = (e) => setVehicleType(e.target.value);
     const handleVehicleIdChange = (e) => setVehicleId(e.target.value);
 
-    const destinationName = useState("Chennai");
-    const [destination, setDestination] = useState({ lat: 13.0843, lng: 80.2705 }) // Chennai GPS coordinates
+    const destinationName = useState("Ajmer");
+    //const [destination, setDestination] = useState({ lat: 13.0843, lng: 80.2705 }) // Chennai GPS coordinates
+    const [destination, setDestination] = useState({ lat: 26.4499, lng: 74.6399})
 
     useEffect(() => {
         const loadTopic = `fleet/${vehicleType}/${vehicleId}/load`;
