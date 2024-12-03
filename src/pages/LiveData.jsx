@@ -5,8 +5,7 @@ import Sidebar from './Layouts/Sidebar';
 import './styles/LiveData.css'; // Importing external CSS for LiveData
 import { GoogleMap, Marker, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
 
-const server_url = "https://fleetmanagementserver.onrender.com/"
-
+const server_url = import.meta.env.VITE_SERVER_URL;
 
 const socket = io(server_url); // Replace with your backend server URL
 
@@ -80,7 +79,7 @@ const LiveData = () => {
                     setVehicleLocation(result.origin_addresses[0])
 
                     const response_w = await fetch(
-                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
+                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API_KEY}`
                     );
                     const result_w = await response_w.json();
                     console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
@@ -111,7 +110,7 @@ const LiveData = () => {
         const fetchWeather = async () => {
             try {
                 const response_w = await fetch(
-                    `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=68bd923e7b7f4423afed11167fb47304`
+                    `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API_KEY}`
                 );
                 const result_w = await response_w.json();
                 console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
@@ -143,7 +142,7 @@ const LiveData = () => {
 
     // Google Maps setup
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyAcEARwy22d2atZr5W31x9N90DBr_ZDF8U',
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
     });
 
     const mapContainerStyle = {
