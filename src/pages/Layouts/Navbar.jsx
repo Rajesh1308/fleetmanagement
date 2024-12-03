@@ -1,12 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import './Navbar.css'; // Create a separate CSS file for Navbar styles
+import './Navbar.css';
 
 const Navbar = () => {
     return (
-        <div className="navbar text-center">
-            <h3>Dashboard</h3>
-        </div>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <h3 className="navbar-title">Dashboard</h3>
+            </div>
+        </nav>
     );
 };
 

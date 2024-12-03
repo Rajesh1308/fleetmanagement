@@ -79,7 +79,7 @@ const LiveData = () => {
                     setVehicleLocation(result.origin_addresses[0])
 
                     const response_w = await fetch(
-                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API_KEY}`
+                        `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API}`
                     );
                     const result_w = await response_w.json();
                     console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
@@ -110,7 +110,7 @@ const LiveData = () => {
         const fetchWeather = async () => {
             try {
                 const response_w = await fetch(
-                    `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API_KEY}`
+                    `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&key=${import.meta.env.VITE_WEATHERBIT_API}`
                 );
                 const result_w = await response_w.json();
                 console.log(result_w.data[0].app_temp, result_w.data[0].weather.description)
@@ -142,7 +142,7 @@ const LiveData = () => {
 
     // Google Maps setup
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
     });
 
     const mapContainerStyle = {

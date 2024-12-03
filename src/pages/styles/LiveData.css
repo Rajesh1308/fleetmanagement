@@ -1,7 +1,8 @@
 /* App container for layout */
 .app-container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Sidebar styling */
@@ -39,14 +40,21 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin-top: 70px; /* Add space below fixed navbar */
+    transition: margin-left 0.3s ease;
 }
 
 /* Navbar styling */
 .navbar {
-    background-color: #003366; /* Dark Blue */
+    background-color: #003366;
     color: white;
     padding: 20px;
     text-align: center;
+    position: fixed; /* Fix the navbar */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px; /* Fixed height for navbar */
 }
 
 .navbar h1 {
@@ -111,4 +119,34 @@
 
 .map-container {
     margin: 10%;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Reset margin when sidebar is hidden */
+        width: 100%;
+    }
+
+    /* When sidebar is visible */
+    .sidebar:not(.collapsed) ~ .main-content {
+        margin-left: 200px; /* Add margin when sidebar is visible */
+    }
+
+    .navbar {
+        padding-left: 60px; /* Space for hamburger menu */
+    }
+
+    /* Adjust filters for better mobile view */
+    .filters {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    /* Adjust data boxes for mobile */
+    .data-box {
+        width: 100%;
+        height: 100%;
+    }
 }
