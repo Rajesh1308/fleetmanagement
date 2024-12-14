@@ -221,7 +221,7 @@ const LiveData = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="data-box">
-                                <p><strong>Location : </strong> {vehicleLocation !== "" ? vehicleLocation.split(", ").slice(1).join(", ") : 'N/A'}</p>
+                                <p><strong>Location : </strong> {vehicleLocation !== "" ? vehicleLocation : 'N/A'}</p>
                             </div>
                         </div>
                         <div className="col-lg-6">
