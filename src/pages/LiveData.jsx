@@ -197,7 +197,7 @@ const LiveData = () => {
                         </div>
                         <div className="col-lg-3">
                             <div className="data-box">
-                                <p><strong>Load Details : </strong> {data.load}</p>
+                                <p><strong>Load Details : </strong> {data.load} Tons</p>
                             </div>
                         </div>
                         <div className="col-lg-3">
