@@ -41,6 +41,7 @@ const LiveData = () => {
 
         socket.on('mqtt-message', (data) => {
             console.log('Received message:', data);
+            setTcuStatus(1);
 
             if (data.topic === loadTopic) {
                 setData((prevData) => ({
