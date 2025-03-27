@@ -3,6 +3,8 @@
 ## Overview  
 The **Telemetric Control Unit** is a real-time vehicle monitoring system that collects crucial fleet data, including speed, fuel level, axle load, and location. The system processes this data and visualizes it through an interactive **dashboard**, integrating **Google Maps API** for live tracking and a **Weather API** for route optimization.
 
+Follow this ![link](https://github.com/Rajesh1308/fleetmanagementserver) to view the backend of the dashboard
+
 ## Features  
 ✅ **Real-time dashboard** for fleet monitoring  
 ✅ **Google Maps API** for live vehicle tracking  
@@ -13,8 +15,7 @@ The **Telemetric Control Unit** is a real-time vehicle monitoring system that co
 
 ## 🖥️ Tech Stack  
 - **Frontend:** React.js, Tailwind CSS  
-- **Backend:** Django, FastAPI  
-- **Database:** PostgreSQL  
+- **Backend:** Node.js, Python
 - **Communication:** MQTT, WebSockets  
 - **APIs Used:** Google Maps API, Weather API  
 
@@ -30,5 +31,5 @@ The **Telemetric Control Unit** is a real-time vehicle monitoring system that co
 ## 🚀 Installation & Setup  
 1. Clone the repository  
    ```sh
-   git clone https://github.com/yourusername/telemetric-control-unit.git
-   cd telemetric-control-unit
+   git clone https://github.com/Rajesh1308/fleetmanagement.git
+   cd fleetmanagement
