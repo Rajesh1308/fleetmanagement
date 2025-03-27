@@ -18,14 +18,14 @@ The **Telemetric Control Unit** is a real-time vehicle monitoring system that co
 - **Communication:** MQTT, WebSockets  
 - **APIs Used:** Google Maps API, Weather API  
 
-### Dashboard View  
-![Dashboard](<link-to-dashboard-image>)  
+### Dashboard View   
+![maps page](https://github.com/user-attachments/assets/fcd70246-6425-41da-8e47-6679508713d1)
 
 ## 🎥 Demo Video  
-[Watch the working demo](<link-to-video>)  
+[Watch the working demo](https://drive.google.com/file/d/1t388XwfY_UKtsKwXjL8ySQHb8X-fDMQD/view?usp=sharing)  
 
 ## 📄 Project Report  
-[Read the detailed report](<link-to-report-pdf>)  
+[Read the detailed report](https://drive.google.com/file/d/1t388XwfY_UKtsKwXjL8ySQHb8X-fDMQD/view?usp=sharing)  
 
 ## 🚀 Installation & Setup  
 1. Clone the repository  
